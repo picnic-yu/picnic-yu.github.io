@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>vue2 生命周期 | 欢迎来到我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
+  <meta name="description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，先看看流程，然后我们在主要讲解。">
 <meta name="keywords" content="vue,生命周期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue2 生命周期">
 <meta property="og:url" content="http://yoursite.com/2017/07/22/vue-1/index.html">
 <meta property="og:site_name" content="欢迎来到我的博客">
-<meta property="og:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
-<meta property="og:image" content="http://yoursite.com/2017/07/images/1.png">
-<meta property="og:updated_time" content="2017-07-23T01:43:14.726Z">
+<meta property="og:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，先看看流程，然后我们在主要讲解。">
+<meta property="og:image" content="http://img.blog.csdn.net/20170303180741807?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQwNzM4ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-07-23T04:38:03.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue2 生命周期">
-<meta name="twitter:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
-<meta name="twitter:image" content="http://yoursite.com/2017/07/images/1.png">
+<meta name="twitter:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，先看看流程，然后我们在主要讲解。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170303180741807?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQwNzM4ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
   
     <link rel="alternative" href="/atom.xml" title="欢迎来到我的博客" type="application/atom+xml">
   
@@ -179,9 +179,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Vue-2-0-初探之生命周期函数"><a href="#Vue-2-0-初探之生命周期函数" class="headerlink" title="Vue 2.0 初探之生命周期函数"></a>Vue 2.0 初探之生命周期函数</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&gt;更新-&gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。</p>
-<p>首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。</p>
+<p>首先看看下面官网的一张生命周期的图，先看看流程，然后我们在主要讲解。</p>
 <a id="more"></a>
-<p><img src="../../images/1.png" alt="周期"></p>
+<p><img src="http://img.blog.csdn.net/20170303180741807?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQwNzM4ODU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="周期"></p>
 <h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><p>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。可以在这加个loading事件</p>
 <h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><p>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。在这结束loading，还做一些初始化，实现函数自执行</p>
 <h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p>在挂载开始之前被调用：相关的 render 函数首次被调用。这里就是应用的 Virtual DOM（虚拟Dom）技术，先把坑占住了。到后面mounted挂载的时候再把值渲染进去</p>
@@ -302,8 +302,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2017/07/22/对比LESS和SASS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sass &amp; less</div>
+    <a href="/2017/07/22/vue初探之hello word/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue 初探</div>
       <i class="icon-circle-right"></i>
     </a>
   
