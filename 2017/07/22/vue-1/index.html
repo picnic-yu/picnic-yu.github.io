@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>欢迎来到我的博客</title>
+  <title>vue2 生命周期 | 欢迎来到我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到我的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
+<meta name="keywords" content="vue,生命周期">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2 生命周期">
+<meta property="og:url" content="http://yoursite.com/2017/07/22/vue-1/index.html">
 <meta property="og:site_name" content="欢迎来到我的博客">
+<meta property="og:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
+<meta property="og:image" content="http://yoursite.com/2017/07/images/1.png">
+<meta property="og:updated_time" content="2017-07-23T01:43:14.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到我的博客">
+<meta name="twitter:title" content="vue2 生命周期">
+<meta name="twitter:description" content="Vue 2.0 初探之生命周期函数一、概述Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&amp;gt;更新-&amp;gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。 首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。">
+<meta name="twitter:image" content="http://yoursite.com/2017/07/images/1.png">
   
     <link rel="alternative" href="/atom.xml" title="欢迎来到我的博客" type="application/atom+xml">
   
@@ -151,16 +158,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-vue-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-vue-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/vue-1/">vue2 生命周期</a>
+    <h1 class="article-title" itemprop="name">
+      vue2 生命周期
     </h1>
   
 
@@ -175,11 +180,43 @@
       
         <h1 id="Vue-2-0-初探之生命周期函数"><a href="#Vue-2-0-初探之生命周期函数" class="headerlink" title="Vue 2.0 初探之生命周期函数"></a>Vue 2.0 初探之生命周期函数</h1><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Vue实例有一个完整的生命周期，从开始创建、初始化数据、编译模板、挂载DOM、渲染-&gt;更新-&gt;渲染、卸载等一系列过程，即vue生命周期。通俗的说，vue的生命周期就是实例的创建到摧毁的过程。</p>
 <p>首先看看下面官网的一张生命周期的图，我做了一些标记，先看看流程，然后我们在主要讲解。</p>
-        
-          <a class="article-more-a" href="/2017/07/22/vue-1/#more">more >></a>
-        
+<a id="more"></a>
+<p><img src="../../images/1.png" alt="周期"></p>
+<h3 id="beforeCreate"><a href="#beforeCreate" class="headerlink" title="beforeCreate"></a>beforeCreate</h3><p>在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。可以在这加个loading事件</p>
+<h3 id="created"><a href="#created" class="headerlink" title="created"></a>created</h3><p>实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch/event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。在这结束loading，还做一些初始化，实现函数自执行</p>
+<h3 id="beforeMount"><a href="#beforeMount" class="headerlink" title="beforeMount"></a>beforeMount</h3><p>在挂载开始之前被调用：相关的 render 函数首次被调用。这里就是应用的 Virtual DOM（虚拟Dom）技术，先把坑占住了。到后面mounted挂载的时候再把值渲染进去</p>
+<h3 id="mounted"><a href="#mounted" class="headerlink" title="mounted"></a>mounted</h3><p>el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。在这发起后端请求，拿回数据，配合路由钩子做一些事情 </p>
+<h3 id="beforeUpdate"><a href="#beforeUpdate" class="headerlink" title="beforeUpdate"></a>beforeUpdate</h3><p>数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。</p>
+<h3 id="updated"><a href="#updated" class="headerlink" title="updated"></a>updated</h3><p>由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</p>
+<p>当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。</p>
+<p>该钩子在服务器端渲染期间不被调用。</p>
+<h3 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy"></a>beforeDestroy</h3><p>实例销毁之前调用。在这一步，实例仍然完全可用。</p>
+<h3 id="destroyed"><a href="#destroyed" class="headerlink" title="destroyed"></a>destroyed</h3><p>Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这么多钩子函数，我们怎么用呢，我想大家可能有这样的疑问吧。<br>beforecreate : 举个栗子：可以在这加个loading事件<br>created ：在这结束loading，还做一些初始化，实现函数自执行<br>mounted： 在这发起后端请求，拿回数据，配合路由钩子做一些事情<br>beforeDestory： 你确认删除XX吗？ destoryed ：当前组件已被删除，清空相关内容 </p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -203,16 +240,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/22/vue-1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/22/vue-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/22/对比LESS和SASS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sass &amp; less</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -232,169 +328,12 @@
 
 
 
-
   
-    <article id="post-对比LESS和SASS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/对比LESS和SASS/">sass &amp; less</a>
-    </h1>
   
 
-        
-        <a href="/2017/07/22/对比LESS和SASS/" class="archive-article-date">
-  	<time datetime="2017-07-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Sass-Less-Comparison"><a href="#Sass-Less-Comparison" class="headerlink" title="Sass/Less Comparison"></a>Sass/Less Comparison</h1><p>In this document I am using Sass’s SCSS syntax. You can choose to use the indented syntax<br>in sass, if you prefer it, it has no functional differences from the SCSS syntax.</p>
-<p>For Less, I’m using the JavaScript version because this is what they suggest on the website.<br>The ruby version may be different.</p>
-        
-          <a class="article-more-a" href="/2017/07/22/对比LESS和SASS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sass</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">less</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/22/对比LESS和SASS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue初探之hello word" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/vue初探之hello word/">vue 初探</a>
-    </h1>
   
 
-        
-        <a href="/2017/07/22/vue初探之hello word/" class="archive-article-date">
-  	<time datetime="2017-07-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue-2-0-初探之Hello-Word"><a href="#Vue-2-0-初探之Hello-Word" class="headerlink" title="Vue 2.0 初探之Hello Word"></a>Vue 2.0 初探之Hello Word</h1><h2 id="引入vue"><a href="#引入vue" class="headerlink" title="引入vue"></a>引入vue</h2><ol>
-<li>html script引入<br> <code>&lt;script src=&#39;../lib/vue.js&#39;&gt;&lt;/script&gt;</code></li>
-<li>npm 安装 脚手架引入</li>
-</ol>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>打开命令行工具，输入npm install vue(前提node环境已有)</p>
-        
-          <a class="article-more-a" href="/2017/07/22/vue初探之hello word/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/22/vue初探之hello word/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -417,8 +356,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
